@@ -9,13 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = Service.TABLE_NAME)
+@Table(name = AirlineFlight.TABLE_NAME)
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Service extends BaseEntity<Long> {
+public class AirlineFlight extends BaseEntity<Long> {
 
     public static final String TABLE_NAME = "services";
     public static final String FLIGHT_NUMBER = "flight_number";

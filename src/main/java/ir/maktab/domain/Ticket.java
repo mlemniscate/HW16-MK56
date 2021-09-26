@@ -30,6 +30,6 @@ public class Ticket extends BaseEntity<Long> {
 
     @ManyToOne
     @JoinColumn(name = "service_id")
-    private Service service;
+    private AirlineFlight airlineFlight;
 
 }
