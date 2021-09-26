@@ -17,7 +17,7 @@ import java.util.List;
 @Builder
 public class AirlineFlight extends BaseEntity<Long> {
 
-    public static final String TABLE_NAME = "services";
+    public static final String TABLE_NAME = "airline_flights";
     public static final String FLIGHT_NUMBER = "flight_number";
     public static final String INITIAL_POINT = "initial_point";
     public static final String DESTINATION = "destination";
@@ -51,6 +51,10 @@ public class AirlineFlight extends BaseEntity<Long> {
 
     @Column(name = AIRPLANE_NUMBER)
     private String airplaneNumber;
+
+    @ManyToOne
+    @JoinColumn(name = "airline_id")
+    private Airline airline;
 
     @OneToMany
     @JoinColumn(name = "service_id")

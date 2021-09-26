@@ -23,7 +23,7 @@ public class Seat extends BaseEntity<Long> {
     @Column(name = SEAT_NUMBER)
     private String seatNumber;
 
-    @Column(name = RESERVED_USER_ID)
+    @Column(name = RESERVED_USER_ID, unique = true, nullable = false)
     private Long reservedUserId;
 
 }
