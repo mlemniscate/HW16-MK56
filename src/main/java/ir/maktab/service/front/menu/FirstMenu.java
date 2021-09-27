@@ -1,6 +1,5 @@
 package ir.maktab.service.front.menu;
 
-import ir.maktab.domain.Airline;
 import ir.maktab.service.front.input.InputString;
 import ir.maktab.util.ApplicationContext;
 
@@ -35,8 +34,7 @@ public class FirstMenu extends Menu implements RunnableMenu<Void> {
         String username = getUsername();
         String password = getPassword();
         try {
-            Airline airline = ApplicationContext.getAirlineService().login(username, password);
-            new AirlineMenu().runMenu();
+            new AirlineMenu(ApplicationContext.getAirlineService().login(username, password)).runMenu();
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }

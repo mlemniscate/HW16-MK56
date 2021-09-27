@@ -5,6 +5,7 @@ import ir.maktab.domain.AirlineFlight;
 import ir.maktab.repository.AirlineFlightRepository;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class AirlineFlightRepositoryImpl extends BaseEntityRepositoryImpl<AirlineFlight, Long> implements AirlineFlightRepository {
 
@@ -15,5 +16,13 @@ public class AirlineFlightRepositoryImpl extends BaseEntityRepositoryImpl<Airlin
     @Override
     public Class<AirlineFlight> getEntityClass() {
         return AirlineFlight.class;
+    }
+
+    @Override
+    public List<AirlineFlight> findAllAirlineId(Long airlineId) {
+        return getEntityManager().createQuery(
+                " from AirlineFlight a where a.airline.id = :airline_id", AirlineFlight.class)
+                .setParameter("airline_id", airlineId)
+                .getResultList();
     }
 }

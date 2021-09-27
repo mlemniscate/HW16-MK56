@@ -60,4 +60,15 @@ public class AirlineFlight extends BaseEntity<Long> {
     @JoinColumn(name = "airline_flight_id")
     private List<Seat> seats = new ArrayList<>();
 
+    @Override
+    public String toString() {
+        return "FlightNumber : '" + flightNumber +   "\n" +
+                        ", InitialPoint : '" + initialPoint +  "\n" +
+                        ", Destination : '" + destination +  "\n" +
+                        ", DepartureTime : " + departureTime +  "\n" +
+                        ", ArrivalTime : " + arrivalTime +  "\n" +
+                        ", Price : " + price +  "\n" +
+                        ", AircraftModel : '" + aircraftModel +  "\n" +
+                        ", AirplaneNumber : '" + airplaneNumber + "\n";
+    }
 }
