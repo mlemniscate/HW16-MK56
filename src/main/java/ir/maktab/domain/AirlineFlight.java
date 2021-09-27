@@ -62,7 +62,9 @@ public class AirlineFlight extends BaseEntity<Long> {
 
     @Override
     public String toString() {
-        return "FlightNumber : " + flightNumber +   "\n" +
+        return "ID : " + getId() +   "\n" +
+                "Airline : " + getAirline().toString() +   "\n" +
+                "FlightNumber : " + flightNumber +   "\n" +
                         ", InitialPoint : " + initialPoint +  "\n" +
                         ", Destination : " + destination +  "\n" +
                         ", DepartureTime : " + departureTime +  "\n" +

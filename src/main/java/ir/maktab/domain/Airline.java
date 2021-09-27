@@ -34,4 +34,8 @@ public class Airline extends BaseEntity<Long> {
     @Column(name = PASSWORD)
     private String password;
 
+    @Override
+    public String toString() {
+        return airlineName;
+    }
 }

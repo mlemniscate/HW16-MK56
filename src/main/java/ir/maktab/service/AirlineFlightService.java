@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface AirlineFlightService extends BaseEntityService<AirlineFlight, Long> {
 
-    List<AirlineFlight> findAllAirlineId(Long airlineId);
+    List<AirlineFlight> findByAirlineId(Long airlineId);
 
+    List<AirlineFlight> findByCities(String initialCity, String destinationCity);
 }

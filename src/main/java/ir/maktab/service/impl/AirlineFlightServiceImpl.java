@@ -15,7 +15,12 @@ public class AirlineFlightServiceImpl extends BaseEntityServiceImpl<AirlineFligh
 
 
     @Override
-    public List<AirlineFlight> findAllAirlineId(Long airlineId) {
-        return repository.findAllAirlineId(airlineId);
+    public List<AirlineFlight> findByAirlineId(Long airlineId) {
+        return repository.findByAirlineId(airlineId);
+    }
+
+    @Override
+    public List<AirlineFlight> findByCities(String initialCity, String destinationCity) {
+        return repository.findByCities(initialCity, destinationCity);
     }
 }

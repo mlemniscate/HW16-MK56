@@ -20,10 +20,9 @@ public class MainApp {
 
     public static void main(String[] args) {
         HibernateUtil.getMainEntityManagerFactory().createEntityManager();
-//        enterAirlines();
-//        enterUsers();
+        enterAirlines();
+        enterUsers();
         new FirstMenu().runMenu();
-//        new FirstMenu().runMenu();
     }
 
     private static void enterUsers() {
@@ -58,7 +57,7 @@ public class MainApp {
     }
 
     private static void enterAirlineFlights(Airline airline) {
-        Faker fakerCountry = new Faker(new Locale("en"));
+        Faker fakerCountry = new Faker(new Locale("tr"));
         IntStream.range(1, 11).forEach(item -> {
             AirlineFlight airlineFlight = buildAirlineFlight(fakerCountry, airline);
             ApplicationContext.getAirlineFlightService().save(airlineFlight);

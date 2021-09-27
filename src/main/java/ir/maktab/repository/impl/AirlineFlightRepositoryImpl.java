@@ -19,10 +19,21 @@ public class AirlineFlightRepositoryImpl extends BaseEntityRepositoryImpl<Airlin
     }
 
     @Override
-    public List<AirlineFlight> findAllAirlineId(Long airlineId) {
+    public List<AirlineFlight> findByAirlineId(Long airlineId) {
         return getEntityManager().createQuery(
                 " from AirlineFlight a where a.airline.id = :airline_id", AirlineFlight.class)
                 .setParameter("airline_id", airlineId)
+                .getResultList();
+    }
+
+    @Override
+    public List<AirlineFlight> findByCities(String initialCity, String destinationCity) {
+        return getEntityManager().createQuery(
+                " from AirlineFlight a " +
+                        "where a.initialPoint = :initial and " +
+                        "a.destination = :destination", AirlineFlight.class)
+                .setParameter("initial", initialCity)
+                .setParameter("destination", destinationCity)
                 .getResultList();
     }
 }

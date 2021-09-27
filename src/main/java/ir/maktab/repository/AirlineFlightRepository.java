@@ -6,5 +6,7 @@ import ir.maktab.domain.AirlineFlight;
 import java.util.List;
 
 public interface AirlineFlightRepository extends BaseEntityRepository<AirlineFlight, Long> {
-    List<AirlineFlight> findAllAirlineId(Long airlineId);
+    List<AirlineFlight> findByAirlineId(Long airlineId);
+
+    List<AirlineFlight> findByCities(String initialCity, String destinationCity);
 }

@@ -89,7 +89,7 @@ public class AirlineMenu extends Menu implements RunnableMenu<Void> {
     }
 
     private void showAirlineFlights() {
-        List<AirlineFlight> flights = ApplicationContext.getAirlineFlightService().findAllAirlineId(airline.getId());
+        List<AirlineFlight> flights = ApplicationContext.getAirlineFlightService().findByAirlineId(airline.getId());
         for (int i = 0; i < flights.size(); i++) {
             System.out.println("--------------------------------------------------");
             System.out.printf("#%d: %s\n", (i+1),flights.get(i));
