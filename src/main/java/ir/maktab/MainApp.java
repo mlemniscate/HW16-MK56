@@ -66,14 +66,15 @@ public class MainApp {
     }
 
     private static AirlineFlight buildAirlineFlight(Faker fakerTr, Airline airline) {
+        LocalDateTime departureTime = getRandomLocalDateTime();
         return AirlineFlight.builder()
                 .airline(airline)
                 .aircraftModel(faker.aviation().aircraft())
                 .airplaneNumber(faker.bothify("?####"))
                 .initialPoint(fakerTr.address().cityName())
                 .destination(fakerTr.address().cityName())
-                .departureTime(getRandomLocalDateTime())
-                .arrivalTime(getRandomLocalDateTime())
+                .departureTime(departureTime)
+                .arrivalTime(departureTime.plusHours(6))
                 .flightNumber(faker.bothify("###??"))
                 .seats(getSeats())
                 .price(faker.number().numberBetween(500_000, 1_000_000))
