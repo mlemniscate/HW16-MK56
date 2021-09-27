@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class FirstMenu extends Menu implements RunnableMenu<Void> {
 
     public FirstMenu() {
-        super(new ArrayList<>(Arrays.asList("User Log In", "User Sign Up","Airline Panel Login", "Exit")));
+        super(new ArrayList<>(Arrays.asList("User Log In", "Airline Panel Login", "Exit")));
     }
 
     @Override
@@ -17,20 +17,29 @@ public class FirstMenu extends Menu implements RunnableMenu<Void> {
         while (true) {
             switch (getItemFromConsole()) {
                 case 1:
+                    userLogin();
                     break;
                 case 2:
+                    airlinePanelLogin();
                     break;
                 case 3:
-                    AirlinePanelLogin();
-                    break;
-                case 4:
                     if (new CheckMenu("Are you sure you want to exit?").runMenu()) return null;
                     else break;
             }
         }
     }
 
-    private void AirlinePanelLogin() {
+    private void userLogin() {
+        String username = getUsername();
+        String password = getPassword();
+        try {
+            new UserMenu(ApplicationContext.getUserService().login(username, password)).runMenu();
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    private void airlinePanelLogin() {
         String username = getUsername();
         String password = getPassword();
         try {
