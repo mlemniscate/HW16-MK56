@@ -29,7 +29,7 @@ public class Ticket extends BaseEntity<Long> {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "service_id")
+    @JoinColumn(name = "airline_flight_id")
     private AirlineFlight airlineFlight;
 
 }

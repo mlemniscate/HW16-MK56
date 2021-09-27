@@ -52,12 +52,12 @@ public class AirlineFlight extends BaseEntity<Long> {
     @Column(name = AIRPLANE_NUMBER)
     private String airplaneNumber;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "airline_id")
     private Airline airline;
 
-    @OneToMany
-    @JoinColumn(name = "service_id")
+    @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "airline_flight_id")
     private List<Seat> seats = new ArrayList<>();
 
 }

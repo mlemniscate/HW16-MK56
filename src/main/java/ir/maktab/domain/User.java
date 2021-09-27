@@ -21,10 +21,10 @@ public class User extends BaseEntity<Long> {
     public static final String USERNAME = "username";
     public static final String PASSWORD = "password";
 
-    @Column(name = USERNAME)
+    @Column(name = USERNAME, unique = true, nullable = false)
     private String username;
 
-    @Column(name = PASSWORD)
+    @Column(name = PASSWORD, nullable = false)
     private String password;
 
     @Column(name = EMAIL)
@@ -36,7 +36,7 @@ public class User extends BaseEntity<Long> {
     @Column(name = BALANCE)
     private Integer balance;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id")
     private Account account;
 
