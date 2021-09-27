@@ -17,7 +17,6 @@ import java.util.stream.IntStream;
 
 public class MainApp {
     private static final Faker faker = new Faker();
-    ;
 
     public static void main(String[] args) {
         HibernateUtil.getMainEntityManagerFactory().createEntityManager();

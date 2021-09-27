@@ -18,9 +18,13 @@ public class AirlineServiceImpl extends BaseEntityServiceImpl<Airline, Long, Air
     public Airline login(String username, String password) throws Exception {
         Airline airline = repository.findByUsername(username);
         if(Objects.isNull(airline))
-            throw new NullPointerException("Your username is wrong!");
+            throw new NullPointerException("\n----------------------------------" +
+                    "Your username is wrong!\n" +
+                    "----------------------------------\n");
         else if(!airline.getPassword().equals(password))
-            throw new Exception("Your password is wrong!");
+            throw new Exception("\n----------------------------------" +
+                    "Your password is wrong!\n" +
+                    "----------------------------------\n");
         else return airline;
     }
 }
