@@ -3,6 +3,7 @@ package ir.maktab;
 import com.github.javafaker.Faker;
 import ir.maktab.domain.*;
 import ir.maktab.domain.enums.Gender;
+import ir.maktab.service.front.menu.FirstMenu;
 import ir.maktab.util.ApplicationContext;
 import ir.maktab.util.HibernateUtil;
 
@@ -20,9 +21,9 @@ public class MainApp {
 
     public static void main(String[] args) {
         HibernateUtil.getMainEntityManagerFactory().createEntityManager();
-        enterAirlines();
-        enterUsers();
-
+//        enterAirlines();
+//        enterUsers();
+        new FirstMenu().runMenu();
 //        new FirstMenu().runMenu();
     }
 
@@ -106,6 +107,8 @@ public class MainApp {
         return Airline.builder()
                 .airlineName(faker.company().name())
                 .balance(faker.number().numberBetween(500_000, 1_000_000_000))
+                .username(faker.name().username())
+                .password("123456")
                 .build();
     }
 }
