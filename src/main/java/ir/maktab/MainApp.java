@@ -20,8 +20,8 @@ public class MainApp {
 
     public static void main(String[] args) {
         HibernateUtil.getMainEntityManagerFactory().createEntityManager();
-        enterAirlines();
-        enterUsers();
+//        enterAirlines();
+//        enterUsers();
         new FirstMenu().runMenu();
     }
 
