@@ -22,7 +22,7 @@ public class Ticket extends BaseEntity<Long> {
     private String ticketNumber;
 
     @Column(name = SEAT_NUMBER)
-    private Integer seatNumber;
+    private String seatNumber;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
